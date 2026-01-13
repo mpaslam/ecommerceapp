@@ -240,32 +240,31 @@ class ProductDetailContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(child: titleWidget),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.035,
-                  vertical: screenWidth * 0.015,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.bestSellerPink,
-                  borderRadius: BorderRadius.circular(screenWidth * 0.015),
-                ),
-                child: Text(
-                  'Best Seller',
-                  style: AppTextStyles.prominentLabel(
-                    fontSize: screenWidth * 0.0275,
+              if (!isEditing) // CONDITIONALLY SHOW BEST SELLER
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.035,
+                    vertical: screenWidth * 0.015,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.bestSellerPink,
+                    borderRadius: BorderRadius.circular(screenWidth * 0.015),
+                  ),
+                  child: Text(
+                    'Best Seller',
+                    style: AppTextStyles.prominentLabel(
+                      fontSize: screenWidth * 0.0275,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
           SizedBox(height: screenWidth * 0.02),
 
-          // START: ADDED MISSING DETAILS
           _buildRatingAndStockInfo(subtitleFontSize),
           _buildCategoryInfo(subtitleFontSize),
           SizedBox(height: screenWidth * 0.06),
 
-          // END: ADDED MISSING DETAILS
           Text(
             'About the item',
             style: AppTextStyles.description(
@@ -314,7 +313,6 @@ class ProductDetailContent extends StatelessWidget {
     );
   }
 
-  // Helper method for Rating and Stock
   Widget _buildRatingAndStockInfo(double fontSize) {
     return Padding(
       padding: EdgeInsets.only(bottom: screenWidth * 0.015),
@@ -357,7 +355,6 @@ class ProductDetailContent extends StatelessWidget {
     );
   }
 
-  // Helper method for Category
   Widget _buildCategoryInfo(double fontSize) {
     return Padding(
       padding: EdgeInsets.only(bottom: screenWidth * 0.03),

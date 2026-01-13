@@ -116,10 +116,12 @@ class ProductCard extends StatelessWidget {
           ),
           SizedBox(height: screenWidth * 0.025),
           Text(
+            overflow: TextOverflow.ellipsis,
             product.title,
             style: AppTextStyles.boldTitle( // REPLACED
               fontSize: baseFontSize,
               color: AppColors.black,
+              
             ),
           ),
           SizedBox(height: screenWidth * 0.0125),
